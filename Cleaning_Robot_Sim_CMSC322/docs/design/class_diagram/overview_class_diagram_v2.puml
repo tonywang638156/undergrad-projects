@@ -1,0 +1,46 @@
+@startuml
+
+class Robot {
+    - size: robot_size {small, large}
+    - type: type {Sweeper, Vacuum, Mopper}
+    - process_time: int
+    - failure_rate: float
+}
+
+interface Sweeper {
+    + sweep(location_name)
+}
+
+interface Vacuum {
+    + vacuum(location_name)
+}
+
+interface Mopper {
+    + mop(location_name)
+}
+
+class Location {
+    - location_name: string
+    - size: room_size {small, median, large}
+}
+
+class UserInterface {
+  + checkBrokenRobot()
+  + popBrokenRobot(robot_id)
+  + requestCleaning(location_name, cleaning_type)
+}
+
+class RobotManagementSystem {
+  - robotsMap: std::unordered_map<int, Robot>
+  + requestCleaning(room_id, cleaning_type): void
+}
+
+
+
+Robot --> Sweeper
+Robot --> Vacuum
+Robot --> Mopper
+
+UserInterface *--* RobotManagementSystem: uses
+RobotManagementSystem *--* Robot : contains
+@enduml

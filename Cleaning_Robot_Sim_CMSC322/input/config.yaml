@@ -1,0 +1,11 @@
+robots:
+  large_sweepers: 4
+  small_sweepers: 2
+  large_vacuums: 3
+  small_vacuums: 1
+  large_mops: 2
+  small_mops: 4
+rooms:
+  large: ["bedroom"]
+  medium: ["hub","hallway"]
+  small: ["bathroom"]

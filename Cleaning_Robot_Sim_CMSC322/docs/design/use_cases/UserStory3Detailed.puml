@@ -1,0 +1,19 @@
+@startuml
+title Cleaning Robot
+
+actor "Large Robot" as large_robot
+actor "Small Robot" as small_robot
+
+
+
+usecase "Large Room Information" as L
+usecase "Medium Room Information" as M
+usecase "Small Room Information" as S
+
+
+large_robot --> L: Receives Large Room Information
+large_robot --> M: Receives Medium Room Information
+large_robot --> S: Receives Small Room Information
+
+small_robot --> S: Receives Small Room Information
+@enduml

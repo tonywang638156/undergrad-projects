@@ -1,0 +1,34 @@
+@startuml
+
+actor "Building Manager" as BM
+participant "User Interface" as UI
+participant "Robot Management System" as RMS
+actor Robot
+
+BM -> UI: Request task
+
+UI -> RMS: Request task
+
+activate RMS
+RMS -> RMS: check robot availability
+
+alt robot available
+RMS -> Robot: assign task
+deactivate RMS
+activate Robot
+Robot -> Robot: clean room
+RMS -> UI: task assigned MSG
+deactivate Robot
+
+else robot not available
+
+activate RMS
+RMS -> RMS: estimate time
+RMS -> UI: Estimated wait time MSG
+deactivate RMS
+
+end
+
+UI -> BM: Show Message to Manager
+
+@enduml

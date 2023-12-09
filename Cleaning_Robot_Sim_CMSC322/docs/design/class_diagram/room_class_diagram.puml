@@ -1,0 +1,6 @@
+@startuml
+class Location {
+    - location_name: string
+    - size: room_size {small, median, large}
+}
+@enduml

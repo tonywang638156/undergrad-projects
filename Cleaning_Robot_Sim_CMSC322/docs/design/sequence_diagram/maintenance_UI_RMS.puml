@@ -1,0 +1,35 @@
+@startuml
+
+actor Maintenance
+participant "User Interface" as UI
+participant "Robot Management System" as RMS
+
+activate Maintenance
+
+Maintenance -> UI: Check Broken Robot
+activate UI
+UI -> RMS: Search Broken Robot
+activate RMS
+RMS -> UI: Return Map of Broken Robot
+deactivate RMS
+alt No Broken Robot
+    UI --> Maintenance: Clear
+else Broken Robot
+    UI --> Maintenance: Map of Broken Robot
+end
+deactivate UI
+loop
+    Maintenance -> Maintenance: Pick Up Broken Robot
+    Maintenance -> UI: submit(robot ID)
+    activate UI
+    alt No Broken Robot in Map
+        UI --> Maintenance: Clear
+    else Broken Robot in Map
+        UI --> Maintenance: Map of Broken Robot
+    end
+end
+deactivate UI
+deactivate Maintenance
+
+
+@enduml

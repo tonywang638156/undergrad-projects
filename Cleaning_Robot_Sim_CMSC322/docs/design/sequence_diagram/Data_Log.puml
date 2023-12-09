@@ -1,0 +1,38 @@
+@startuml Data_Log
+
+database DataLog as DL
+participant "Robot Management System" as RMS
+actor Robot
+
+RMS -> DL: Cleaning task requested
+
+activate RMS
+RMS -> RMS: check robot availability
+
+alt robot available
+RMS -> Robot: assign task
+deactivate RMS
+activate Robot
+Robot -> Robot: clean room
+RMS -> DL: task assigned
+deactivate Robot
+
+else robot not available
+
+activate RMS
+RMS -> RMS: estimate time
+end
+
+alt robot breaks down
+Robot -> RMS: Robot failure
+deactivate RMS
+RMS -> DL: Robot Failure
+
+activate Robot
+else robot doesn't break
+Robot -> Robot: Cleaning
+Robot -> RMS: Cleaning Success
+deactivate Robot
+RMS -> DL: Cleaning Success
+end
+@enduml Data_Log
