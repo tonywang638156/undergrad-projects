@@ -3,8 +3,8 @@
 #include <string>
 
 // Constructor
-Robot::Robot(Size robotSize, Type robotType, int processingTime, std::string loc_value)
-    : size(robotSize), type(robotType), processingTime(processingTime), loc(loc_value) {}
+Robot::Robot(Size robotSize, Type robotType, int processingTime, std::string loc_value, int xx, int yy)
+    : size(robotSize), type(robotType), processingTime(processingTime), loc(loc_value), x(xx), y(yy){}
 
 Robot::Robot(){}
 
@@ -33,6 +33,14 @@ int Robot::fixTime(){
         return 20;
     }
     return 0;
+}
+
+int Robot::getX(){
+    return x;
+}
+
+int Robot::getY(){
+    return y;
 }
 
 // Setter methods
@@ -65,32 +73,23 @@ void Robot::setLoc(std::string input_loc){
     loc = input_loc;
 }
 
+void Robot::setX(int xx){
+    x = xx;
+}
+
+void Robot::setY(int yy){
+    y = yy;
+}
+
 // Three Implementations
-Mop::Mop(Size robotSize, Type robotType, int processingTime, std::string loc_value)
-: Robot(robotSize, robotType, processingTime, loc_value) {}
+Mop::Mop(Size robotSize, Type robotType, int processingTime, std::string loc_value, int xx, int yy)
+: Robot(robotSize, robotType, processingTime, loc_value, xx, yy) {}
 
-Vacuum::Vacuum(Size robotSize, Type robotType, int processingTime, std::string loc_value)
-: Robot(robotSize, robotType, processingTime, loc_value) {}
+Vacuum::Vacuum(Size robotSize, Type robotType, int processingTime, std::string loc_value, int xx, int yy)
+: Robot(robotSize, robotType, processingTime, loc_value, xx, yy) {}
 
-Sweeper::Sweeper(Size robotSize, Type robotType, int processingTime, std::string loc_value)
-: Robot(robotSize, robotType, processingTime, loc_value) {}
-
-// Clean Functions ** WAITING TO BE CHANGED
-int Robot::clean(){
-    return 0;
-}
-
-int Mop::clean(){
-    return 0;
-}
-
-int Vacuum::clean(){
-    return 0;
-}
-
-int Sweeper::clean(){
-    return 0;
-}
+Sweeper::Sweeper(Size robotSize, Type robotType, int processingTime, std::string loc_value, int xx, int yy)
+: Robot(robotSize, robotType, processingTime, loc_value, xx, yy) {}
 
 // Test
 void Robot::print(){

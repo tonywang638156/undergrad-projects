@@ -61,3 +61,42 @@ Yili:
 + What's Next:
     + Fetch and merge Location Class
     + Fetch and merge function that updates the location of the Robot
+
+
+## Standup 4: December 7, 2023
+
+Jenna:
++ Addressed Dr. Martin's comments from the last sprint
++ Cleaned up some old files from the repo
++ Started on Catch2 testing for the RMS class
+    + addRoom and addRobot are completed - add getters to RMS.hpp help with testing
+    + still need to test for some of the more complex functions
+
+Thando:
++ Built Catch2 testing files for room class.
+    + might need to test for more complex functions
++ Built Catch2 testing files for robot class.
+    + might need to test for more complex functions
++ Created the CMake Lists file for catch2 testing.
++ Deleted some unnecessary files in the .cache file.
++ I plan to start working on diagrams for the bonuses.
+
+Yili:
++ Improvements on Previous Code Base:
+    + Reduce redundancy for Robot Class
+        + Delete some unnecessary methods, such as clean()
+    + Implement Unique_ptr for RMS Class
+
+Tony:
++ Help integrating log file and all help functions into the main
++ Integrating the Visual Simulation into the whole project
++ improve the data log output
+
++ What's New:
+    + Merge Room Class by Thando into RMS Class
+    + Merge YAML input sections by Jenna into the simulation 
+    + Merge datalog output feature by Tony work for the simulation
+    + Merge Probability methods by Tony into RMS Class work for the simulation
++ What's Next:
+    + Create methods to output CSV files for Tony's animation
+    + Have coordinates algorithm work for the simulation

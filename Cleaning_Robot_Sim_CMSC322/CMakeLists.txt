@@ -3,6 +3,10 @@ project(libsim)
 
 include(dependencies.cmake)
 
+add_library(robot
+src/robot.cpp
+)
+
 # add_library(librms
 #   src/RMS.cpp
 # )
@@ -17,3 +21,5 @@ include(dependencies.cmake)
 # )
 
 add_subdirectory(app)
+# add_subdirectory(tests)
+

@@ -1,0 +1,10 @@
+Robot15 is cleaning room bathroom @ location at time 7
+Robot15 is cleaning room bathroom @ location at time 8
+Robot15 is cleaning room bathroom @ location at time 9
+Robot15 is cleaning room bathroom @ location at time 10
+Robot15 is cleaning room bathroom @ location at time 11
+Robot15 is cleaning room bathroom @ location at time 12
+Robot15 is cleaning room bathroom @ location at time 13
+Robot15 is cleaning room bathroom @ location at time 14
+Robot15 is cleaning room bathroom @ location at time 15
+Robot15 is sent back to hub at time 16

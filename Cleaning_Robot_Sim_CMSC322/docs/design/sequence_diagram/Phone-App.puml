@@ -1,16 +1,16 @@
 @startuml
 
 actor "Building Manager" as BM
-participant "User Interface" as UI
+participant "Phone App" as PA
 participant "Robot Management System" as RMS
 actor Robot
-participant "Visual Simulator" as VS
 
-BM -> UI: Request task
+BM -> PA: Request task
 
-UI -> RMS: Request task
+PA -> RMS: Request task
 
 activate RMS
+RMS -> RMS: add request to que 
 RMS -> RMS: check robot availability
 
 alt robot available
@@ -18,24 +18,18 @@ RMS -> Robot: assign task
 deactivate RMS
 activate Robot
 Robot -> Robot: clean room
-RMS -> UI: task assigned MSG
+RMS -> PA: task assigned MSG
 deactivate Robot
 
 else robot not available
 
 activate RMS
 RMS -> RMS: estimate time
-RMS -> UI: Estimated wait time MSG
+RMS -> PA: Estimated wait time MSG
 deactivate RMS
 
 end
 
-UI -> BM: Show Message to Manager
-
-BM -> VS: Data flow
-activate VS
-VS -> VS: Process data
-VS -> BM: Data flow back to Manager
-deactivate VS
+PA -> BM: Show Message to Manager
 
 @enduml

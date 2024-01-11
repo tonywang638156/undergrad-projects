@@ -1,46 +1,65 @@
-@startuml
+@startuml overview
 
 class Robot {
-    - size: robot_size {small, large}
-    - type: type {Sweeper, Vacuum, Mopper}
-    - process_time: int
-    - failure_rate: float
+    - size: Size
+    - type: Type
+    - processingTime: int
+    - loc: std::string
+    - x: int
+    - y: int
+    + getSize(): Size
+    + getType(): Type
+    + getTime(): int
+    + getLoc(): std::string
+    + fixTime(): int
+    + getX(): int
+    + getY(): int
 }
 
-interface Sweeper {
-    + sweep(location_name)
+class Room {
+    - name: std::string
+    - size: RoomSize
+    + getName(): std::string
+    + getSize(): RoomSize
 }
 
-interface Vacuum {
-    + vacuum(location_name)
+enum RoomSize {
+  Small 
+  Medium
+  Large 
 }
 
-interface Mopper {
-    + mop(location_name)
+enum Type {
+  Sweeper
+  Vacuum
+  Mop
 }
 
-class Location {
-    - location_name: string
-    - size: room_size {small, median, large}
+enum Size {
+  Small
+  Large
 }
 
 class UserInterface {
-  + checkBrokenRobot()
-  + popBrokenRobot(robot_id)
-  + requestCleaning(location_name, cleaning_type)
 }
 
 class RobotManagementSystem {
-  - robotsMap: std::unordered_map<int, Robot>
-  + requestCleaning(room_id, cleaning_type): void
+  - robots: std::unordered_map<int, Robot>
+  - busyRobot: std::unordered_map<int, bool>
+  - brokenRobot: std::unordered_map<int, bool>
+  - roomDictionary: std::unordered_map<std::string, RoomSize>
+  + requestCleaning(RoomSize, Type): int
+  + simulation(): void
+  + updateRobotLocation(int x_,int y_,int x,int y,int time,int step): std::pair<int,int>
+  + add_busyRobot(): void
+  + addRobot(): void
+  + addRoom(): void
 }
 
-
-
-Robot --> Sweeper
-Robot --> Vacuum
-Robot --> Mopper
-
-UserInterface *--* RobotManagementSystem: uses
-RobotManagementSystem *--* Robot : contains
+UserInterface --> RobotManagementSystem: uses
+RobotManagementSystem *-- Robot
+RobotManagementSystem *-- Room
+Room --> RoomSize
+Robot --> Type
+Robot --> Size
 @enduml

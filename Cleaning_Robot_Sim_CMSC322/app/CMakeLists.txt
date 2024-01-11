@@ -1,12 +1,12 @@
-add_executable(run_simulation
+add_executable(user_interface
   User_Interface.cpp
 )
 
-target_link_libraries(run_simulation
+target_link_libraries(user_interface
   PRIVATE
   yaml-cpp
   fmt::fmt
   #include our other libraries created in the home directory cmake file
 )
 
-target_compile_features(run_simulation PRIVATE cxx_std_20)
+target_compile_features(user_interface PRIVATE cxx_std_20)
