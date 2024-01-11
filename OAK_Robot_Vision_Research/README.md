@@ -2,7 +2,6 @@
 
 
 ## File Overview
-Here are the main directories you need to worry about this semester:
 + `stereoDepth-doubleModelDetection.py` - this file will perform stereo depth estimation, objection detections from two models (mobilenet vs yolov7)
 + `yolov7-objectDetection` - this file will just simply perform the objection detection using the yolov7 model
 + `yolov8-humanPoseEstimation` - this file will perform the human pose estimation on multiple people using yolov8 model
