@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-"""
-The code is the same as for Tiny Yolo V3 and V4, the only difference is the blob file
-- Tiny YOLOv3: https://github.com/david8862/keras-YOLOv3-model-set
-- Tiny YOLOv4: https://github.com/TNTWEN/OpenVINO-YOLOV4
-"""
 
 from pathlib import Path
 import sys
